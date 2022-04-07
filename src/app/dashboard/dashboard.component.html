@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item mr-3">
+            <button (click)="clickAddPost()" type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add Posts</button>
+        </li>
+        <li class="nav-item">
+          <button routerLink="/login"  type="button" class="btn btn-danger">Logout</button>
+        </li>
+      </ul>
+    </div>
+</nav>
+<h1 class="text-center py-3">Post Data</h1>
+<div class="container-fluid">
+    <div class="row" *ngIf="allPostData.length>0">
+      <div class="col-md-4 my-2" *ngFor="let data of allPostData">
+        <div class="card bg-light">
+          <div class="card-header">
+            <h4>{{data.name}}</h4>
+          </div>
+          <div class="card-body">
+            <p>{{data.posts}}</p>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-info mr-2" data-toggle="modal" data-target="#exampleModal" (click)=" oneditData(data)">Edit</button>
+            <button (click)="deleteData(data)" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<!--Add Post Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 *ngIf="showadd" class="modal-title" id="exampleModalLabel">Add Posts</h5>
+        <h5 *ngIf="showUpdate" class="modal-title" id="exampleModalLabel">Update Posts</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Post Title</label>
+            <input type="text" formControlName="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Post Name">
+          </div>
+          <div class="form-group">
+            <label>Post Description</label>
+            <textarea class="form-control" formControlName="posts" name="services" id="" cols="2" rows="3"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" id="clear">Clear</button>
+        <button *ngIf="showadd" (click)="addPost()" type="button" class="btn btn-primary">Add Post</button>
+        <button *ngIf="showUpdate" (click)="updatePost()" type="button" class="btn btn-primary">Update Post</button>
+      </div>
+    </div>
+  </div>
+</div>

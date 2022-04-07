@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col-md-6 mx-auto">
+            <div class="card bg-light">
+                <div class="card-header">
+                    <h2>Post Login</h2>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="loginForm" (ngSubmit)="login()">
+                        <div class="form-group">
+                          <label>Email address</label>
+                          <input type="email" class="form-control" formControlName="email" aria-describedby="emailHelp" placeholder="Enter Correct email">
+                        </div>
+                        <div class="form-group">
+                          <label>Password</label>
+                          <input type="password" class="form-control" formControlName="password" placeholder="Enter Correct Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary mr-3">Login</button>
+                        <a routerLink="/signup">New User? click to SignUp  </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

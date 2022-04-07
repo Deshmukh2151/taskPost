@@ -1,0 +1,44 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "Coffee",
+      "posts": "Nice Coffee.."
+    },
+    {
+      "id": 2,
+      "name": "Chai",
+      "posts": "Wow"
+    }
+  ],
+  "signup": [
+    {
+      "name": "Rajveer",
+      "email": "rajveer@gmail.com",
+      "mobile": 8888889999,
+      "password": "rajveer",
+      "id": 1
+    },
+    {
+      "name": "Kapil",
+      "email": "kapil@gmail.com",
+      "mobile": 7777778888,
+      "password": "kapil",
+      "id": 2
+    },
+    {
+      "name": "Nisha",
+      "email": "nishi@gmail.com",
+      "mobile": 7666444555,
+      "password": "nishi",
+      "id": 3
+    },
+    {
+      "name": "Raj",
+      "email": "rajendradeshmukh2151@gmail.com",
+      "mobile": 8778887887,
+      "password": "rajendra",
+      "id": 4
+    }
+  ]
+}
