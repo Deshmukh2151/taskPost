@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output ,EventEmitter} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+// import { EventEmitter } from 'stream';
 import { KedoApiService } from '../service/kedo-api.service';
 
 @Component({
@@ -12,6 +13,9 @@ import { KedoApiService } from '../service/kedo-api.service';
 export class LoginComponent implements OnInit {
   loginForm!:FormGroup;
   constructor(private formBuilder:FormBuilder, private _credentailAPI:KedoApiService, private router:Router) { }
+
+  loginUser:any;
+  @Output() newItemEvent = new EventEmitter();
 
   ngOnInit(): void {
     this.loginForm=this.formBuilder.group({
@@ -28,7 +32,11 @@ export class LoginComponent implements OnInit {
       if(user){
         alert("User Login Successfully")
         this.loginForm.reset();
+        this.loginUser=user.name;
+        this.newItemEvent.emit(this.loginUser)
         this.router.navigate(['/dashboard'])
+        console.log("username",this.loginUser);
+        
       }else{
         alert("Please Enter Valid Credentails")
       }
@@ -37,4 +45,7 @@ export class LoginComponent implements OnInit {
     })
   }
  
+  testuser(){
+    this.newItemEvent.emit(this.loginUser);
+  }
 }

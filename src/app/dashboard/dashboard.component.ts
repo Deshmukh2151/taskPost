@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Post } from '../modal/post';
 import { KedoApiService } from '../service/kedo-api.service';
@@ -8,22 +8,30 @@ import { KedoApiService } from '../service/kedo-api.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnChanges {
   formValue!:FormGroup;
   allPostData:Post[]=[];
   postModelObj:Post= new Post;
   showadd!:boolean;
   showUpdate!:boolean;
+  // @Input() username: any;
+  test:any;
   constructor(private formBuilder:FormBuilder, private _api:KedoApiService) { 
     
   }
 
   ngOnInit(): void {
+
     this.formValue=this.formBuilder.group({
       name:[""],
       posts:[""],
     })
     this.getAllData();
+    // this.username(Event);
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    // console.log("dashboard user",this.username)
+    this.username(event);
   }
    clickAddPost(){
      this.formValue.reset();
@@ -62,7 +70,13 @@ export class DashboardComponent implements OnInit {
      this.getAllData()
    })
   }
-
+  // username(event:any){
+  //   this.test=event
+  //   console.log("Dashboard", this.);
+  // }
+  username(event:any){
+     console.log("testsss",event.target.value);  
+  }
   oneditData(data:any){
     this.showadd=false;
     this.showUpdate=true;

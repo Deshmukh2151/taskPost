@@ -6,9 +6,9 @@
       "posts": "Nice Coffee.."
     },
     {
-      "id": 2,
-      "name": "Chai",
-      "posts": "Wow"
+      "id": 3,
+      "name": "Pizza",
+      "posts": "Tasty.."
     }
   ],
   "signup": [
@@ -39,6 +39,20 @@
       "mobile": 8778887887,
       "password": "rajendra",
       "id": 4
+    },
+    {
+      "name": "Nishi ",
+      "email": "nishi143@gmail.com",
+      "mobile": 7863627283,
+      "password": "nishi",
+      "id": 5
+    },
+    {
+      "name": "abhijit",
+      "email": "abhijit@gmail.com",
+      "mobile": 777777788,
+      "password": "88888",
+      "id": 6
     }
   ]
 }
